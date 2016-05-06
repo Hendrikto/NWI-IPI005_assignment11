@@ -133,4 +133,20 @@ public class WeatherInfo {
         return iconURL;
     }
 
+    @Override
+    public String toString() {
+        return String.join("\n",
+                "Station: " + stationName,
+                "Date: " + date,
+                "Temperature: " + temp,
+                "Rain: " + getRain(),
+                "Wind Speed: " + windSpeed,
+                "Wind Direction: " + windDirection,
+                "Gusts: " + gusts,
+                "Air Pressure: " + airPressure,
+                "Humidity: " + humidity,
+                "Visibility: " + visibility
+        );
+    }
+
 }
