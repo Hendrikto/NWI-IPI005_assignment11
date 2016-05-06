@@ -87,21 +87,21 @@ public class WeatherInfo {
      * @return the temp
      */
     public String getTemp() {
-        return temp;
+        return temp + "°C";
     }
 
     /**
      * @return the windSpeed
      */
     public String getWindSpeed() {
-        return windSpeed;
+        return windSpeed + "m/s";
     }
 
     /**
      * @return the gusts
      */
     public String getGusts() {
-        return gusts;
+        return gusts + "m/s";
     }
 
     /**
@@ -115,14 +115,14 @@ public class WeatherInfo {
      * @return the visibility
      */
     public String getVisibility() {
-        return visibility;
+        return visibility + "m";
     }
 
     /**
      * @return the rain
      */
     public String getRain() {
-        return rain;
+        return rain + "mmpu";
     }
 
     /**
