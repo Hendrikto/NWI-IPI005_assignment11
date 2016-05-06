@@ -80,7 +80,7 @@ public class WeatherInfo {
      * @return the humidity
      */
     public String getHumidity() {
-        return humidity;
+        return humidity + "%";
     }
 
     /**
