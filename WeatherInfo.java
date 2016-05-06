@@ -26,7 +26,6 @@ public class WeatherInfo {
     private static final String DATE_FORMAT_XML = "MM/dd/yyyy HH:mm:ss";
 
     private final Date date;
-    private final SimpleDateFormat dateFormat;
     private final String stationName;
     private final String windDirection;
     private final String visibility;
@@ -42,7 +41,7 @@ public class WeatherInfo {
      * @param station the dom element describing the station
      */
     public WeatherInfo(Element station) throws ParseException {
-        dateFormat = new SimpleDateFormat(DATE_FORMAT_XML);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_XML);
         date = dateFormat.parse(station.getElementsByTagName(DATE_TAG).item(0).getTextContent());
         stationName = station.getElementsByTagName(STATION_NAME_TAG).item(0).getTextContent();
         humidity = station.getElementsByTagName(HUMIDITY_TAG).item(0).getTextContent();
