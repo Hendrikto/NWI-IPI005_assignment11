@@ -135,16 +135,16 @@ public class WeatherInfo {
     @Override
     public String toString() {
         return String.join("\n",
-                "Station: " + stationName,
-                "Date: " + date,
-                "Temperature: " + temp,
+                "Station: " + getStationName(),
+                "Date: " + getDate(),
+                "Temperature: " + getTemp(),
                 "Rain: " + getRain(),
-                "Wind Speed: " + windSpeed,
-                "Wind Direction: " + windDirection,
-                "Gusts: " + gusts,
-                "Air Pressure: " + airPressure,
-                "Humidity: " + humidity,
-                "Visibility: " + visibility
+                "Wind Speed: " + getWindSpeed(),
+                "Wind Direction: " + getWindDirection(),
+                "Gusts: " + getGusts(),
+                "Air Pressure: " + getAirPressure(),
+                "Humidity: " + getHumidity(),
+                "Visibility: " + getVisibility()
         );
     }
 
