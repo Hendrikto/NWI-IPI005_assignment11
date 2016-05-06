@@ -38,7 +38,6 @@ public class Assignment10 extends Application {
 
     private final Map<String, WeatherInfo> stationInfo = new HashMap<>();
     private DocumentBuilder builder;
-    private NodeList stationNodes;
 
     @Override
     public void start(Stage primaryStage) throws ParseException, SAXException, IOException, ParserConfigurationException {
@@ -105,7 +104,7 @@ public class Assignment10 extends Application {
     }
 
     private void refreshData() throws ParseException, SAXException, IOException {
-        stationNodes = builder.parse(new URL(API_ENDPOINT).openStream()).getElementsByTagName("weerstation");
+        NodeList stationNodes = builder.parse(new URL(API_ENDPOINT).openStream()).getElementsByTagName("weerstation");
         stationInfo.clear();
         WeatherInfo info;
         for (int i = 0; i < stationNodes.getLength(); i++) {
