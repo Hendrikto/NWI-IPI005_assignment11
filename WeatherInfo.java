@@ -27,13 +27,13 @@ public class WeatherInfo {
     private final SimpleDateFormat dateFormat;
     private final String stationName;
     private final String windDirection;
+    private final String visibility;
+    private final String airPressure;
+    private final String rain;
     private final int humidity;
-    private final int visibility;
-    private final int rain;
     private final double temp;
     private final double windSpeed;
     private final double gusts;
-    private final double airPressure;
 
     /**
      * @param station the dom element describing the station
@@ -46,10 +46,10 @@ public class WeatherInfo {
         temp = Double.parseDouble(station.getElementsByTagName(TEMP_TAG).item(0).getTextContent());
         windSpeed = Double.parseDouble(station.getElementsByTagName(WIND_SPEED_TAG).item(0).getTextContent());
         gusts = Double.parseDouble(station.getElementsByTagName(GUSTS_TAG).item(0).getTextContent());
-        airPressure = Double.parseDouble(station.getElementsByTagName(AIR_PRESSURE_TAG).item(0).getTextContent());
+        airPressure = station.getElementsByTagName(AIR_PRESSURE_TAG).item(0).getTextContent();
         windDirection = station.getElementsByTagName(WIND_DIRECTION_TAG).item(0).getTextContent();
-        visibility = Integer.parseInt(station.getElementsByTagName(VISIBILITY_TAG).item(0).getTextContent());
-        rain = Integer.parseInt(station.getElementsByTagName(RAIN_TAG).item(0).getTextContent());
+        visibility = station.getElementsByTagName(VISIBILITY_TAG).item(0).getTextContent();
+        rain = station.getElementsByTagName(RAIN_TAG).item(0).getTextContent();
     }
 
     /**
@@ -104,21 +104,21 @@ public class WeatherInfo {
     /**
      * @return the airPressure
      */
-    public double getAirPressure() {
+    public String getAirPressure() {
         return airPressure;
     }
 
     /**
      * @return the visibility
      */
-    public int getVisibility() {
+    public String getVisibility() {
         return visibility;
     }
 
     /**
      * @return the rain
      */
-    public int getRain() {
+    public String getRain() {
         return rain;
     }
 
