@@ -23,9 +23,9 @@ public class WeatherInfo {
     private static final String RAIN_TAG = "regenMMPU";
     private static final String DATE_FORMAT = "MM/dd/yyyy HH:mm:ss";
 
+    private final Date date;
     private final SimpleDateFormat dateFormat;
     private final String stationName;
-    private final Date date;
     private final String windDirection;
     private final int humidity;
     private final int visibility;
