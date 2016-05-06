@@ -1,5 +1,6 @@
 package assignment11;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.w3c.dom.Element;
@@ -30,22 +31,22 @@ public class WeatherInfo {
     private final String visibility;
     private final String airPressure;
     private final String rain;
-    private final int humidity;
-    private final double temp;
-    private final double windSpeed;
-    private final double gusts;
+    private final String humidity;
+    private final String temp;
+    private final String windSpeed;
+    private final String gusts;
 
     /**
      * @param station the dom element describing the station
      */
-    public WeatherInfo(Element station) throws Exception {
+    public WeatherInfo(Element station) throws ParseException {
         dateFormat = new SimpleDateFormat(DATE_FORMAT_XML);
-        stationName = station.getElementsByTagName(STATION_NAME_TAG).item(0).getTextContent();
         date = dateFormat.parse(station.getElementsByTagName(DATE_TAG).item(0).getTextContent());
-        humidity = Integer.parseInt(station.getElementsByTagName(HUMIDITY_TAG).item(0).getTextContent());
-        temp = Double.parseDouble(station.getElementsByTagName(TEMP_TAG).item(0).getTextContent());
-        windSpeed = Double.parseDouble(station.getElementsByTagName(WIND_SPEED_TAG).item(0).getTextContent());
-        gusts = Double.parseDouble(station.getElementsByTagName(GUSTS_TAG).item(0).getTextContent());
+        stationName = station.getElementsByTagName(STATION_NAME_TAG).item(0).getTextContent();
+        humidity = station.getElementsByTagName(HUMIDITY_TAG).item(0).getTextContent();
+        temp = station.getElementsByTagName(TEMP_TAG).item(0).getTextContent();
+        windSpeed = station.getElementsByTagName(WIND_SPEED_TAG).item(0).getTextContent();
+        gusts = station.getElementsByTagName(GUSTS_TAG).item(0).getTextContent();
         airPressure = station.getElementsByTagName(AIR_PRESSURE_TAG).item(0).getTextContent();
         windDirection = station.getElementsByTagName(WIND_DIRECTION_TAG).item(0).getTextContent();
         visibility = station.getElementsByTagName(VISIBILITY_TAG).item(0).getTextContent();
@@ -76,28 +77,28 @@ public class WeatherInfo {
     /**
      * @return the humidity
      */
-    public int getHumidity() {
+    public String getHumidity() {
         return humidity;
     }
 
     /**
      * @return the temp
      */
-    public double getTemp() {
+    public String getTemp() {
         return temp;
     }
 
     /**
      * @return the windSpeed
      */
-    public double getWindSpeed() {
+    public String getWindSpeed() {
         return windSpeed;
     }
 
     /**
      * @return the gusts
      */
-    public double getGusts() {
+    public String getGusts() {
         return gusts;
     }
 
