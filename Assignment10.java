@@ -34,6 +34,7 @@ import org.xml.sax.SAXException;
 public class Assignment10 extends Application {
 
     private static final String API_ENDPOINT = "http://xml.buienradar.nl/";
+    private static final String STATION_TAG = "weerstation";
     private static final int GUTTER = 10;
 
     private final Map<String, WeatherInfo> stationInfo = new HashMap<>();
@@ -104,7 +105,7 @@ public class Assignment10 extends Application {
     }
 
     private void refreshData() throws ParseException, SAXException, IOException {
-        NodeList stationNodes = builder.parse(new URL(API_ENDPOINT).openStream()).getElementsByTagName("weerstation");
+        NodeList stationNodes = builder.parse(new URL(API_ENDPOINT).openStream()).getElementsByTagName(STATION_TAG);
         stationInfo.clear();
         WeatherInfo info;
         for (int i = 0; i < stationNodes.getLength(); i++) {
