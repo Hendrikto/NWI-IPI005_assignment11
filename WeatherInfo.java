@@ -132,6 +132,9 @@ public class WeatherInfo {
         return iconURL;
     }
 
+    /**
+     * @return a human-readable string representation
+     */
     @Override
     public String toString() {
         return String.join("\n",
