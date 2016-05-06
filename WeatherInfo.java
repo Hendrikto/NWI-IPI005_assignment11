@@ -21,7 +21,7 @@ public class WeatherInfo {
     private static final String AIR_PRESSURE_TAG = "luchtdruk";
     private static final String VISIBILITY_TAG = "zichtmeters";
     private static final String RAIN_TAG = "regenMMPU";
-    private static final String DATE_FORMAT = "MM/dd/yyyy HH:mm:ss";
+    private static final String DATE_FORMAT_XML = "MM/dd/yyyy HH:mm:ss";
 
     private final Date date;
     private final SimpleDateFormat dateFormat;
@@ -39,7 +39,7 @@ public class WeatherInfo {
      * @param station the dom element describing the station
      */
     public WeatherInfo(Element station) throws Exception {
-        dateFormat = new SimpleDateFormat(DATE_FORMAT);
+        dateFormat = new SimpleDateFormat(DATE_FORMAT_XML);
         stationName = station.getElementsByTagName(STATION_NAME_TAG).item(0).getTextContent();
         date = dateFormat.parse(station.getElementsByTagName(DATE_TAG).item(0).getTextContent());
         humidity = Integer.parseInt(station.getElementsByTagName(HUMIDITY_TAG).item(0).getTextContent());
