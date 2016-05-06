@@ -20,6 +20,7 @@ public class WeatherInfo {
     private static final String GUSTS_TAG = "windstotenMS";
     private static final String AIR_PRESSURE_TAG = "luchtdruk";
     private static final String VISIBILITY_TAG = "zichtmeters";
+    private static final String RAIN_TAG = "regenMMPU";
     private static final String DATE_FORMAT = "MM/dd/yyyy HH:mm:ss";
 
     private final SimpleDateFormat dateFormat;
@@ -28,6 +29,7 @@ public class WeatherInfo {
     private final String windDirection;
     private final int humidity;
     private final int visibility;
+    private final int rain;
     private final double temp;
     private final double windSpeed;
     private final double gusts;
@@ -47,6 +49,7 @@ public class WeatherInfo {
         airPressure = Double.parseDouble(station.getElementsByTagName(AIR_PRESSURE_TAG).item(0).getTextContent());
         windDirection = station.getElementsByTagName(WIND_DIRECTION_TAG).item(0).getTextContent();
         visibility = Integer.parseInt(station.getElementsByTagName(VISIBILITY_TAG).item(0).getTextContent());
+        rain = Integer.parseInt(station.getElementsByTagName(RAIN_TAG).item(0).getTextContent());
     }
 
     /**
@@ -110,6 +113,13 @@ public class WeatherInfo {
      */
     public int getVisibility() {
         return visibility;
+    }
+
+    /**
+     * @return the rain
+     */
+    public int getRain() {
+        return rain;
     }
 
 }
