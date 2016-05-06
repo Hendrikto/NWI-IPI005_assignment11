@@ -22,6 +22,7 @@ public class WeatherInfo {
     private static final String AIR_PRESSURE_TAG = "luchtdruk";
     private static final String VISIBILITY_TAG = "zichtmeters";
     private static final String RAIN_TAG = "regenMMPU";
+    private static final String ICON_URL_TAG = "icoonactueel";
     private static final String DATE_FORMAT_XML = "MM/dd/yyyy HH:mm:ss";
 
     private final Date date;
@@ -35,6 +36,7 @@ public class WeatherInfo {
     private final String temp;
     private final String windSpeed;
     private final String gusts;
+    private final String iconURL;
 
     /**
      * @param station the dom element describing the station
@@ -51,6 +53,7 @@ public class WeatherInfo {
         windDirection = station.getElementsByTagName(WIND_DIRECTION_TAG).item(0).getTextContent();
         visibility = station.getElementsByTagName(VISIBILITY_TAG).item(0).getTextContent();
         rain = station.getElementsByTagName(RAIN_TAG).item(0).getTextContent();
+        iconURL = station.getElementsByTagName(ICON_URL_TAG).item(0).getTextContent();
     }
 
     /**
@@ -121,6 +124,13 @@ public class WeatherInfo {
      */
     public String getRain() {
         return rain;
+    }
+
+    /**
+     * @return the iconURL
+     */
+    public String getIconURL() {
+        return iconURL;
     }
 
 }
