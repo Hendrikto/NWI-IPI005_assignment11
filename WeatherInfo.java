@@ -108,7 +108,7 @@ public class WeatherInfo {
      * @return the airPressure
      */
     public String getAirPressure() {
-        return airPressure;
+        return airPressure + "hPa";
     }
 
     /**
