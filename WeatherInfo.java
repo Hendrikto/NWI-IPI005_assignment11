@@ -37,22 +37,26 @@ public class WeatherInfo {
     private final String gusts;
     private final String iconURL;
 
+    public static String getContent(Element e, String tag) {
+        return e.getElementsByTagName(tag).item(0).getTextContent();
+    }
+
     /**
      * @param station the dom element describing the station
      */
     public WeatherInfo(Element station) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_XML);
         date = dateFormat.parse(station.getElementsByTagName(DATE_TAG).item(0).getTextContent());
-        stationName = station.getElementsByTagName(STATION_NAME_TAG).item(0).getTextContent();
-        humidity = station.getElementsByTagName(HUMIDITY_TAG).item(0).getTextContent();
-        temp = station.getElementsByTagName(TEMP_TAG).item(0).getTextContent();
-        windSpeed = station.getElementsByTagName(WIND_SPEED_TAG).item(0).getTextContent();
-        gusts = station.getElementsByTagName(GUSTS_TAG).item(0).getTextContent();
-        airPressure = station.getElementsByTagName(AIR_PRESSURE_TAG).item(0).getTextContent();
-        windDirection = station.getElementsByTagName(WIND_DIRECTION_TAG).item(0).getTextContent();
-        visibility = station.getElementsByTagName(VISIBILITY_TAG).item(0).getTextContent();
-        rain = station.getElementsByTagName(RAIN_TAG).item(0).getTextContent();
-        iconURL = station.getElementsByTagName(ICON_URL_TAG).item(0).getTextContent();
+        stationName = getContent(station, STATION_NAME_TAG);
+        humidity = getContent(station, HUMIDITY_TAG);
+        temp = getContent(station, TEMP_TAG);
+        windSpeed = getContent(station, WIND_SPEED_TAG);
+        gusts = getContent(station, GUSTS_TAG);
+        airPressure = getContent(station, AIR_PRESSURE_TAG);
+        windDirection = getContent(station, WIND_DIRECTION_TAG);
+        visibility = getContent(station, VISIBILITY_TAG);
+        rain = getContent(station, RAIN_TAG);
+        iconURL = getContent(station, ICON_URL_TAG);
     }
 
     /**
