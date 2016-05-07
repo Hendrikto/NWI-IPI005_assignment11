@@ -55,9 +55,7 @@ public class Assignment10 extends Application {
 
         Text weatherText = new Text(stationInfo.get(stationChoice.getValue()).toString());
 
-        Button btnShow = new Button();
-        btnShow.setText("Show Data");
-        btnShow.setOnAction(e -> {
+        stationChoice.setOnAction(e -> {
             WeatherInfo info = stationInfo.get(stationChoice.getValue());
             weatherText.setText(info.toString());
             icon.setImage(new Image(info.getIconURL()));
@@ -76,7 +74,7 @@ public class Assignment10 extends Application {
         HBox controls = new HBox();
         controls.setAlignment(Pos.CENTER);
         controls.setSpacing(GUTTER);
-        controls.getChildren().addAll(btnShow, btnRefresh);
+        controls.getChildren().add(btnRefresh);
 
         VBox root = new VBox();
         root.setAlignment(Pos.CENTER);
