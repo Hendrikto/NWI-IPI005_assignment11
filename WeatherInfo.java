@@ -37,6 +37,11 @@ public class WeatherInfo {
     private final String gusts;
     private final String iconURL;
 
+    /**
+     * @param e the element that contains the tag
+     * @param tag the tag that contains the content
+     * @return the text content of the tag within the element
+     */
     public static String getContent(Element e, String tag) {
         return e.getElementsByTagName(tag).item(0).getTextContent();
     }
