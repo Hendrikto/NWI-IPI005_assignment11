@@ -71,11 +71,6 @@ public class Assignment10 extends Application {
             }
         });
 
-        HBox controls = new HBox();
-        controls.setAlignment(Pos.CENTER);
-        controls.setSpacing(GUTTER);
-        controls.getChildren().add(btnRefresh);
-
         VBox root = new VBox();
         root.setAlignment(Pos.CENTER);
         root.setSpacing(GUTTER);
@@ -84,7 +79,7 @@ public class Assignment10 extends Application {
                 icon,
                 weatherText,
                 stationChoice,
-                controls,
+                btnRefresh,
                 new Hyperlink("buieneradar.nl")
         );
 
