@@ -33,7 +33,7 @@ import org.xml.sax.SAXException;
  *
  * @author Hendrik Werner // s4549775
  */
-public class Assignment10 extends Application {
+public class Assignment11 extends Application {
 
     private static final String API_ENDPOINT = "http://xml.buienradar.nl/";
     private static final String STATION_TAG = "weerstation";
@@ -66,7 +66,7 @@ public class Assignment10 extends Application {
             try {
                 refreshData();
             } catch (ParseException | SAXException | IOException ex) {
-                Logger.getLogger(Assignment10.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Assignment11.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
 
