@@ -43,6 +43,8 @@ public class Assignment10 extends Application {
     private ChoiceBox<String> stationChoice;
     private ImageView icon;
     private Text weatherText;
+    private Button btnRefresh;
+    private VBox root;
 
     @Override
     public void start(Stage primaryStage) throws ParseException, SAXException, IOException, ParserConfigurationException {
@@ -54,8 +56,6 @@ public class Assignment10 extends Application {
             icon.setImage(new Image(info.getIconURL()));
         });
 
-        Button btnRefresh = new Button();
-        btnRefresh.setText("Refresh Data");
         btnRefresh.setOnAction(e -> {
             try {
                 refreshData();
@@ -64,10 +64,6 @@ public class Assignment10 extends Application {
             }
         });
 
-        VBox root = new VBox();
-        root.setAlignment(Pos.CENTER);
-        root.setSpacing(GUTTER);
-        root.setPadding(new Insets(GUTTER));
         root.getChildren().addAll(
                 icon,
                 weatherText,
@@ -100,6 +96,12 @@ public class Assignment10 extends Application {
         icon = new ImageView();
         icon.setImage(new Image(stationInfo.get(stationChoice.getValue()).getIconURL()));
         weatherText = new Text(stationInfo.get(stationChoice.getValue()).toString());
+        btnRefresh = new Button();
+        btnRefresh.setText("Refresh Data");
+        root = new VBox();
+        root.setAlignment(Pos.CENTER);
+        root.setSpacing(GUTTER);
+        root.setPadding(new Insets(GUTTER));
     }
 
     /**
