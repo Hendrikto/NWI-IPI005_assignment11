@@ -28,6 +28,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
+ * A weather app in JavaFX.
  *
  * @author Hendrik Werner // s4549775
  */
@@ -40,12 +41,20 @@ public class Assignment10 extends Application {
     private final Map<String, WeatherInfo> stationInfo = new HashMap<>();
     private DocumentBuilder builder;
 
+    /**
+     * JavaFX UI elements.
+     */
     private ChoiceBox<String> stationChoice;
     private ImageView icon;
     private Text weatherText;
     private Button btnRefresh;
     private VBox root;
 
+    /**
+     * Start the weather app.
+     *
+     * @param primaryStage the primary stage
+     */
     @Override
     public void start(Stage primaryStage) throws ParseException, SAXException, IOException, ParserConfigurationException {
         initialize();
