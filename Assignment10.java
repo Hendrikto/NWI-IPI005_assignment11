@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -59,11 +60,7 @@ public class Assignment10 extends Application {
     public void start(Stage primaryStage) throws ParseException, SAXException, IOException, ParserConfigurationException {
         initialize();
 
-        stationChoice.setOnAction(e -> {
-            WeatherInfo info = stationInfo.get(stationChoice.getValue());
-            weatherText.setText(info.toString());
-            icon.setImage(new Image(info.getIconURL()));
-        });
+        stationChoice.setOnAction(this::updateView);
 
         btnRefresh.setOnAction(e -> {
             try {
@@ -111,6 +108,12 @@ public class Assignment10 extends Application {
         root.setAlignment(Pos.CENTER);
         root.setSpacing(GUTTER);
         root.setPadding(new Insets(GUTTER));
+    }
+
+    private void updateView(ActionEvent e) {
+        WeatherInfo info = stationInfo.get(stationChoice.getValue());
+        weatherText.setText(info.toString());
+        icon.setImage(new Image(info.getIconURL()));
     }
 
     /**
