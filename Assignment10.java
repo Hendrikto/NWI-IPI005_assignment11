@@ -40,16 +40,13 @@ public class Assignment10 extends Application {
     private final Map<String, WeatherInfo> stationInfo = new HashMap<>();
     private DocumentBuilder builder;
 
+    private ChoiceBox<String> stationChoice;
+    private ImageView icon;
+    private Text weatherText;
+
     @Override
     public void start(Stage primaryStage) throws ParseException, SAXException, IOException, ParserConfigurationException {
         initialize();
-
-        ChoiceBox<String> stationChoice = buildStationChoice("Meetstation Arcen");
-
-        ImageView icon = new ImageView();
-        icon.setImage(new Image(stationInfo.get(stationChoice.getValue()).getIconURL()));
-
-        Text weatherText = new Text(stationInfo.get(stationChoice.getValue()).toString());
 
         stationChoice.setOnAction(e -> {
             WeatherInfo info = stationInfo.get(stationChoice.getValue());
@@ -101,6 +98,10 @@ public class Assignment10 extends Application {
                 .newInstance()
                 .newDocumentBuilder();
         refreshData();
+        stationChoice = buildStationChoice("Meetstation Arcen");
+        icon = new ImageView();
+        icon.setImage(new Image(stationInfo.get(stationChoice.getValue()).getIconURL()));
+        weatherText = new Text(stationInfo.get(stationChoice.getValue()).toString());
     }
 
     /**
