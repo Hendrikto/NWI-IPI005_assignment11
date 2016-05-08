@@ -65,6 +65,7 @@ public class Assignment11 extends Application {
         btnRefresh.setOnAction(e -> {
             try {
                 refreshData();
+                updateView(e);
             } catch (ParseException | SAXException | IOException ex) {
                 Logger.getLogger(Assignment11.class.getName()).log(Level.SEVERE, null, ex);
             }
