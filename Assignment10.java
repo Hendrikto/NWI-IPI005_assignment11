@@ -110,6 +110,11 @@ public class Assignment10 extends Application {
         root.setPadding(new Insets(GUTTER));
     }
 
+    /**
+     * Update the view.
+     *
+     * @param e the action event
+     */
     private void updateView(ActionEvent e) {
         WeatherInfo info = stationInfo.get(stationChoice.getValue());
         weatherText.setText(info.toString());
