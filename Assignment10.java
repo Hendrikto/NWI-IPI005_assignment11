@@ -42,10 +42,7 @@ public class Assignment10 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws ParseException, SAXException, IOException, ParserConfigurationException {
-        builder = DocumentBuilderFactory
-                .newInstance()
-                .newDocumentBuilder();
-        refreshData();
+        initialize();
 
         ChoiceBox<String> stationChoice = buildStationChoice("Meetstation Arcen");
 
@@ -94,6 +91,16 @@ public class Assignment10 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+    }
+
+    /**
+     * Initialize the app.
+     */
+    private void initialize() throws ParseException, ParserConfigurationException, SAXException, IOException {
+        builder = DocumentBuilderFactory
+                .newInstance()
+                .newDocumentBuilder();
+        refreshData();
     }
 
     /**
