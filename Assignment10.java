@@ -47,8 +47,7 @@ public class Assignment10 extends Application {
                 .newDocumentBuilder();
         refreshData();
 
-        ChoiceBox<String> stationChoice = buildStationChoice();
-        stationChoice.setValue("Meetstation Arcen");
+        ChoiceBox<String> stationChoice = buildStationChoice("Meetstation Arcen");
 
         ImageView icon = new ImageView();
         icon.setImage(new Image(stationInfo.get(stationChoice.getValue()).getIconURL()));
@@ -113,9 +112,10 @@ public class Assignment10 extends Application {
     /**
      * @return a choice box with all weather stations
      */
-    public ChoiceBox<String> buildStationChoice() {
+    public ChoiceBox<String> buildStationChoice(String initial) {
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
         stationInfo.keySet().stream().forEach(s -> choiceBox.getItems().add(s));
+        choiceBox.setValue(initial);
         return choiceBox;
     }
 
