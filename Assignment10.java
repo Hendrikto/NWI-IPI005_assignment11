@@ -94,9 +94,7 @@ public class Assignment10 extends Application {
      * Initialize the app.
      */
     private void initialize() throws ParseException, ParserConfigurationException, SAXException, IOException {
-        builder = DocumentBuilderFactory
-                .newInstance()
-                .newDocumentBuilder();
+        builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         refreshData();
         stationChoice = buildStationChoice("Meetstation Arcen");
         icon = new ImageView();
