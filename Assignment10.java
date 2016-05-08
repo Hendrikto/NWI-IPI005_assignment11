@@ -97,6 +97,9 @@ public class Assignment10 extends Application {
         launch(args);
     }
 
+    /**
+     * Refresh weather data.
+     */
     private void refreshData() throws ParseException, SAXException, IOException {
         NodeList stationNodes = builder.parse(new URL(API_ENDPOINT).openStream()).getElementsByTagName(STATION_TAG);
         stationInfo.clear();
@@ -107,6 +110,9 @@ public class Assignment10 extends Application {
         }
     }
 
+    /**
+     * @return a choice box with all weather stations
+     */
     public ChoiceBox<String> buildStationChoice() {
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
         stationInfo.keySet().stream().forEach(s -> choiceBox.getItems().add(s));
