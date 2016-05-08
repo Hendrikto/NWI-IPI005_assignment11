@@ -9,6 +9,7 @@ import org.w3c.dom.Element;
  * Hold information about the weather at a station.
  *
  * @author Hendrik Werner // s4549775
+ * @author Jasper Haasdijk // s4449754
  */
 public class WeatherInfo {
 

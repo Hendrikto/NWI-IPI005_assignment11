@@ -32,6 +32,7 @@ import org.xml.sax.SAXException;
  * A weather app in JavaFX.
  *
  * @author Hendrik Werner // s4549775
+ * @author Jasper Haasdijk // s4449754
  */
 public class Assignment11 extends Application {
 
