@@ -52,7 +52,7 @@ public class WeatherInfo {
      */
     public WeatherInfo(Element station) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_XML);
-        date = dateFormat.parse(station.getElementsByTagName(DATE_TAG).item(0).getTextContent());
+        date = dateFormat.parse(getContent(station, DATE_TAG));
         stationName = getContent(station, STATION_NAME_TAG);
         humidity = getContent(station, HUMIDITY_TAG);
         temp = getContent(station, TEMP_TAG);
